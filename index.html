@@ -23,8 +23,7 @@
       <div class="nav-container">
         <div class="nav-logo">
           <img
-            src="assets/images/home.png"
-            alt="Home Logo"
+            src="images/home.png"
             style="
               height: 32px;
               width: auto;
@@ -111,13 +110,60 @@
             </div>
           </div>
           <div class="about-image">
-            <img
-              class="about-photo lazy"
-              src="https://images.unsplash.com/photo-1505691723518-36a5ac3b2d52?w=10&q=1&auto=format&fit=crop"
-              data-src="https://images.unsplash.com/photo-1505691723518-36a5ac3b2d52?w=1200&q=80&auto=format&fit=crop"
-              alt="Professional lighting installation in a modern interior"
-              loading="lazy"
-            />
+            <div class="about-slider about-slider-horizontal">
+              <button
+                class="about-slider-prev card-slider-btn"
+                aria-label="Previous slide"
+              >
+                &#9664;
+              </button>
+              <div class="about-slider-track">
+                <div class="about-slide about-slide-card">
+                  <div class="about-card">
+                    <img
+                      class="about-photo lazy"
+                      src="images/image1.jpeg"
+                      data-src="images/image1.jpeg"
+                      alt="Professional lighting installation in a modern interior"
+                      loading="lazy"
+                    />
+                  </div>
+                </div>
+                <div class="about-slide about-slide-card">
+                  <div class="about-card">
+                    <img
+                      class="about-photo lazy"
+                      src="images/image.jpeg"
+                      data-src="images/image.jpeg"
+                      alt="Modern office lighting design"
+                      loading="lazy"
+                    />
+                  </div>
+                </div>
+                <div class="about-slide about-slide-card">
+                  <div class="about-card">
+                    <img
+                      class="about-photo lazy"
+                      src="images/image3.jpeg"
+                      data-src="images/image3.jpeg"
+                      alt="Retail lighting showcase"
+                      loading="lazy"
+                    />
+                  </div>
+                </div>
+              </div>
+              <button
+                class="about-slider-next card-slider-btn"
+                aria-label="Next slide"
+              >
+                &#9654;
+              </button>
+              <div class="about-slider-dots about-slider-dots-horizontal">
+                <span class="about-slider-dot active"></span>
+                <span class="about-slider-dot"></span>
+                <span class="about-slider-dot"></span>
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -132,8 +178,15 @@
         </div>
         <div class="brands-grid">
           <div class="brand-card">
-            <div class="brand-logo">
-              <i class="fas fa-lightbulb"></i>
+            <div style="background-color: aliceblue">
+              <img
+                src="images/philips.png"
+                loading="lazy"
+                sizes="20px"
+                width="100px"
+                height="100px"
+                style="object-fit: contain"
+              />
             </div>
             <h3>Philips Lighting</h3>
             <p>Innovative LED solutions for every space</p>
@@ -156,22 +209,15 @@
             <div class="brand-logo">
               <i class="fas fa-crown"></i>
             </div>
-            <h3>GE Lighting</h3>
+            <h3>Luminus</h3>
             <p>Reliable commercial solutions</p>
           </div>
           <div class="brand-card">
             <div class="brand-logo">
               <i class="fas fa-diamond"></i>
             </div>
-            <h3>Acuity Brands</h3>
+            <h3>Samsung</h3>
             <p>Architectural lighting excellence</p>
-          </div>
-          <div class="brand-card">
-            <div class="brand-logo">
-              <i class="fas fa-fire"></i>
-            </div>
-            <h3>Signify</h3>
-            <p>Smart connected lighting</p>
           </div>
         </div>
       </div>

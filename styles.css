@@ -321,11 +321,119 @@ body {
 
 .about-photo {
   width: 100%;
-  max-width: 500px;
-  height: 320px;
+  max-width: 640px;
+  height: 400px;
   object-fit: cover;
   border-radius: 20px;
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+/* About vertical slider */
+.about-slider {
+  position: relative;
+  width: 100%;
+  max-width: 660px;
+  height: 420px; /* container slightly larger than image for buttons */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.about-slider-vertical {
+  padding: 0 40px; /* space for vertical buttons */
+}
+
+.about-slider-track {
+  position: relative;
+  width: 100%;
+  height: 400px;
+  overflow: hidden;
+  border-radius: 20px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+.about-slider-track .about-slide {
+  width: 100%;
+  height: 400px;
+}
+
+.about-slider-track .about-slide-card {
+  width: 100%;
+  height: 100%;
+}
+
+.about-card {
+  width: 100%;
+  height: 100%;
+}
+
+.about-slider-track-inner {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  transition: transform 0.4s ease;
+}
+
+.card-slider-btn {
+  position: absolute;
+  right: 8px;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: rgba(44, 62, 80, 0.85);
+  color: #fff;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.2s ease, transform 0.2s ease;
+  z-index: 2;
+}
+
+.card-slider-btn:hover {
+  background: rgba(243, 156, 18, 0.95);
+  transform: scale(1.05);
+}
+
+.about-slider-prev {
+  left: 8px;
+}
+
+.about-slider-next {
+  right: 8px;
+}
+
+.about-slider-dots {
+  position: absolute;
+  left: 50%;
+  bottom: 10px;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: row;
+  gap: 8px;
+}
+
+.about-slider-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: rgba(44, 62, 80, 0.4);
+  transition: background 0.2s ease, transform 0.2s ease;
+}
+
+.about-slider-dot.active {
+  background: #f39c12;
+  transform: scale(1.2);
+}
+
+@media (max-width: 768px) {
+  .about-slider {
+    max-width: 100%;
+    height: 360px;
+    padding: 0 36px;
+  }
 }
 
 .image-placeholder {

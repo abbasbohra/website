@@ -11,6 +11,7 @@ class ScrollAnimations {
       this.initSmoothScrolling();
       this.initNavbarEffects();
       this.initScrollAnimations();
+      this.initSectionTransitions();
       this.initContactForm();
       this.initScrollToTop();
       this.initTypingEffect();
@@ -20,6 +21,7 @@ class ScrollAnimations {
       this.initImageLazyLoading();
       this.initButtonAnimations();
       this.initCardHoverEffects();
+      this.initParallaxEffects();
     });
   }
 
@@ -140,6 +142,108 @@ class ScrollAnimations {
 
     const heroSection = document.querySelector(".hero");
     if (heroSection) heroObserver.observe(heroSection);
+  }
+
+  // Section Transition Effects - Fixed (footer excluded)
+  initSectionTransitions() {
+    const sectionObserver = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            console.log("Section entering viewport:", entry.target.id);
+            entry.target.classList.add("animated");
+
+            // Animate child elements with delays
+            const children = entry.target.querySelectorAll(".scroll-animate");
+            children.forEach((child, index) => {
+              setTimeout(() => {
+                child.classList.add("animated");
+              }, index * 100);
+            });
+          }
+        });
+      },
+      {
+        threshold: 0.1,
+        rootMargin: "0px 0px -50px 0px",
+      }
+    );
+
+    // Observe all sections EXCEPT hero and footer
+    const sections = document.querySelectorAll(
+      "section:not(.hero):not(.footer)"
+    );
+    console.log("Found sections to observe:", sections.length);
+
+    sections.forEach((section) => {
+      console.log("Observing section:", section.id);
+      sectionObserver.observe(section);
+    });
+
+    // Manually show footer (no transitions)
+    const footer = document.querySelector(".footer");
+    if (footer) {
+      footer.classList.add("animated");
+      footer.style.opacity = "1";
+      footer.style.transform = "translateY(0)";
+      footer.style.visibility = "visible";
+    }
+
+    // Observe section headers
+    const headerObserver = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("animated");
+          }
+        });
+      },
+      { threshold: 0.5 }
+    );
+
+    document.querySelectorAll(".section-header").forEach((header) => {
+      headerObserver.observe(header);
+    });
+  }
+
+  // Apply specific animation classes to sections
+  applySectionAnimationClass(section) {
+    const sectionId = section.id;
+
+    switch (sectionId) {
+      case "about":
+        section.classList.add("section-slide-left", "section-separator");
+        break;
+      case "projects":
+        section.classList.add("section-scale-up", "section-separator");
+        break;
+      case "brands":
+        section.classList.add("section-slide-right", "stagger-grid");
+        break;
+      case "shops":
+        section.classList.add("section-fade-blur", "stagger-grid");
+        break;
+      case "products":
+        section.classList.add("section-flip-in", "stagger-grid");
+        break;
+      case "contact":
+        section.classList.add("section-scale-up");
+        break;
+      default:
+        // Hero and footer don't need additional classes
+        break;
+    }
+  }
+
+  // Animate individual sections
+  animateSection(section) {
+    section.classList.add("animated");
+
+    // Add delay for children elements
+    const children = section.querySelectorAll(".scroll-animate");
+    children.forEach((child, index) => {
+      child.style.transitionDelay = `${index * 0.1 + 0.3}s`;
+    });
   }
 
   // Animate individual elements with professional effects
@@ -437,7 +541,7 @@ class ScrollAnimations {
     if (heroTitle) {
       const originalText = heroTitle.textContent;
       heroTitle.textContent = "";
-      heroTitle.style.borderRight = "2px solid #f39c12";
+      heroTitle.style.borderRight = "2px solid #8A1113";
 
       let i = 0;
       const typeWriter = () => {
@@ -497,7 +601,6 @@ class ScrollAnimations {
     }, duration * 1000);
   }
 
-  // About Section Slider
   // About Section Slider - Fixed Version
   initAboutSlider() {
     const slider = document.querySelector(".about-slider");
@@ -668,34 +771,6 @@ class ScrollAnimations {
     });
   }
 
-  // Lazy load images for slider
-  lazyLoadSlideImages(currentIndex) {
-    const slides = document.querySelectorAll(".about-slide");
-    const currentSlide = slides[currentIndex];
-
-    if (currentSlide) {
-      const img = currentSlide.querySelector("img[data-src]");
-      if (img && img.dataset.src) {
-        img.src = img.dataset.src;
-        img.classList.remove("lazy");
-      }
-    }
-
-    // Preload adjacent slides
-    const nextIndex = (currentIndex + 1) % slides.length;
-    const prevIndex = (currentIndex - 1 + slides.length) % slides.length;
-
-    [nextIndex, prevIndex].forEach((index) => {
-      const slide = slides[index];
-      if (slide) {
-        const img = slide.querySelector("img[data-src]");
-        if (img && img.dataset.src && !img.src) {
-          img.src = img.dataset.src;
-        }
-      }
-    });
-  }
-
   // Counter Animations for Stats
   initCounterAnimations() {
     const statsObserver = new IntersectionObserver(
@@ -809,6 +884,38 @@ class ScrollAnimations {
       });
     });
   }
+
+  // Parallax scrolling effect
+  initParallaxEffects() {
+    window.addEventListener("scroll", () => {
+      const scrolled = window.pageYOffset;
+      const parallaxElements = document.querySelectorAll(".parallax-bg");
+
+      parallaxElements.forEach((element) => {
+        const speed = element.dataset.speed || 0.5;
+        const yPos = -(scrolled * speed);
+        element.style.transform = `translate3d(0, ${yPos}px, 0)`;
+      });
+    });
+  }
+
+  // Performance optimization for animations
+  optimizeAnimations() {
+    // Use will-change for better performance
+    const animatedElements = document.querySelectorAll(
+      ".scroll-animate, section"
+    );
+    animatedElements.forEach((el) => {
+      el.style.willChange = "transform, opacity";
+    });
+
+    // Clean up will-change after animations
+    setTimeout(() => {
+      animatedElements.forEach((el) => {
+        el.style.willChange = "auto";
+      });
+    }, 1000);
+  }
 }
 
 // Initialize the scroll animations
@@ -849,3 +956,31 @@ document.addEventListener(
   },
   true
 );
+
+// Handle resize events for responsive animations
+let resizeTimeout;
+window.addEventListener("resize", () => {
+  clearTimeout(resizeTimeout);
+  resizeTimeout = setTimeout(() => {
+    // Re-initialize animations on resize completion
+    const animatedSections = document.querySelectorAll("section.animated");
+    animatedSections.forEach((section) => {
+      section.style.transition = "none";
+      setTimeout(() => {
+        section.style.transition = "";
+      }, 50);
+    });
+  }, 250);
+});
+
+// Enhanced scroll performance
+let ticking = false;
+window.addEventListener("scroll", () => {
+  if (!ticking) {
+    requestAnimationFrame(() => {
+      // Any scroll-based animations can go here
+      ticking = false;
+    });
+    ticking = true;
+  }
+});

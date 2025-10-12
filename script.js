@@ -214,6 +214,12 @@ class ScrollAnimations {
       case "about":
         section.classList.add("section-slide-left", "section-separator");
         break;
+      case "divisions":
+        section.classList.add("section-slide-left", "section-separator");
+        break;
+      case "companies":
+        section.classList.add("section-slide-right", "section-separator");
+        break;
       case "projects":
         section.classList.add("section-scale-up", "section-separator");
         break;
@@ -331,42 +337,71 @@ class ScrollAnimations {
     const contactForm = document.querySelector(".contact-form");
 
     if (contactForm) {
-      contactForm.addEventListener("submit", (e) => {
+      contactForm.addEventListener("submit", async (e) => {
         e.preventDefault();
 
-        // Get form data
         const formData = new FormData(contactForm);
-        const name = contactForm.querySelector('input[type="text"]').value;
-        const email = contactForm.querySelector('input[type="email"]').value;
-        const phone = contactForm.querySelector('input[type="tel"]').value;
-        const message = contactForm.querySelector("textarea").value;
+        const name = formData.get("name")?.toString() || "";
+        const email = formData.get("email")?.toString() || "";
+        const phone = formData.get("phone")?.toString() || "";
+        const message = formData.get("message")?.toString() || "";
+        const company = formData.get("company")?.toString() || ""; // honeypot
 
-        // Validation
         if (!this.validateForm(name, email, message)) {
           return;
         }
 
-        // Show loading state
         const submitBtn = contactForm.querySelector('button[type="submit"]');
         const originalText = submitBtn.innerHTML;
         submitBtn.innerHTML =
           '<i class="fas fa-spinner fa-spin"></i> Sending...';
         submitBtn.disabled = true;
 
-        // Simulate API call
-        setTimeout(() => {
-          this.showNotification(
-            "Thank you for your message! We will get back to you soon.",
-            "success"
-          );
-          contactForm.reset();
+        const statusDiv = contactForm.querySelector(".form-status");
+        if (statusDiv) statusDiv.textContent = "";
+
+        try {
+          const resp = await fetch("http://localhost:3001/api/contact", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ name, email, phone, message, company }),
+          });
+          const data = await resp
+            .json()
+            .catch(() => ({ ok: false, error: "invalid_response" }));
+          if (resp.ok && data.ok) {
+            this.showNotification(
+              "Thank you for your message! We will get back to you soon.",
+              "success"
+            );
+            contactForm.reset();
+          } else {
+            const msg = this.mapServerError(data.error);
+            this.showNotification(msg, "error");
+          }
+        } catch (err) {
+          this.showNotification("Network error. Please try again.", "error");
+        } finally {
           submitBtn.innerHTML = originalText;
           submitBtn.disabled = false;
-        }, 2000);
+        }
       });
 
       // Add input animations
       this.initFormAnimations(contactForm);
+    }
+  }
+
+  mapServerError(code) {
+    switch (code) {
+      case "missing_fields":
+        return "Please fill in all required fields.";
+      case "invalid_email":
+        return "Please enter a valid email address.";
+      case "spam_detected":
+        return "Submission blocked. Please try again.";
+      default:
+        return "Something went wrong. Please try again later.";
     }
   }
 
@@ -983,4 +1018,75 @@ window.addEventListener("scroll", () => {
     });
     ticking = true;
   }
+});
+
+// Product Filter Functionality
+function initProductFilters() {
+  const filterButtons = document.querySelectorAll(".filter-btn");
+  const categoryCards = document.querySelectorAll(".category-card");
+  const productItems = document.querySelectorAll(".product-item");
+
+  if (filterButtons.length === 0) return; // Exit if no filter buttons found
+
+  filterButtons.forEach((button) => {
+    button.addEventListener("click", () => {
+      // Remove active class from all buttons
+      filterButtons.forEach((btn) => btn.classList.remove("active"));
+      // Add active class to clicked button
+      button.classList.add("active");
+
+      const filter = button.getAttribute("data-filter");
+
+      // Filter category cards with animation
+      categoryCards.forEach((card, index) => {
+        const category = card.getAttribute("data-category");
+        if (filter === "all" || category === filter) {
+          card.style.display = "block";
+          card.style.opacity = "0";
+          card.style.transform = "translateY(30px)";
+          setTimeout(() => {
+            card.style.transition =
+              "all 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94)";
+            card.style.opacity = "1";
+            card.style.transform = "translateY(0)";
+          }, index * 100);
+        } else {
+          card.style.transition = "all 0.3s ease";
+          card.style.opacity = "0";
+          card.style.transform = "translateY(-30px)";
+          setTimeout(() => {
+            card.style.display = "none";
+          }, 300);
+        }
+      });
+
+      // Filter product items with animation
+      productItems.forEach((item, index) => {
+        const category = item.getAttribute("data-category");
+        if (filter === "all" || category === filter) {
+          item.style.display = "block";
+          item.style.opacity = "0";
+          item.style.transform = "translateY(30px)";
+          setTimeout(() => {
+            item.style.transition =
+              "all 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94)";
+            item.style.opacity = "1";
+            item.style.transform = "translateY(0)";
+          }, index * 100);
+        } else {
+          item.style.transition = "all 0.3s ease";
+          item.style.opacity = "0";
+          item.style.transform = "translateY(-30px)";
+          setTimeout(() => {
+            item.style.display = "none";
+          }, 300);
+        }
+      });
+    });
+  });
+}
+
+// Initialize product filters when DOM is loaded
+document.addEventListener("DOMContentLoaded", () => {
+  initProductFilters();
 });

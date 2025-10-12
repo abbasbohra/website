@@ -3,7 +3,9 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Top Selling Products - Al -Burhan Regional Co.</title>
+    <title>
+      Products - Al -Burhan Regional Co. - Professional Lighting Solutions
+    </title>
     <link rel="stylesheet" href="styles.css" />
     <link
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
@@ -15,6 +17,7 @@
     />
   </head>
   <body>
+    <!-- Navigation -->
     <nav class="navbar">
       <div class="nav-container">
         <div class="nav-logo">
@@ -30,11 +33,14 @@
           <span>Al -Burhan Regional Co.</span>
         </div>
         <ul class="nav-menu">
-          <li><a href="index.html#home">Home</a></li>
+          <li><a href="index.html">Home</a></li>
           <li><a href="index.html#about">About</a></li>
+          <li><a href="index.html#divisions">Divisions</a></li>
+          <li><a href="index.html#companies">Companies</a></li>
           <li><a href="index.html#brands">Brands</a></li>
           <li><a href="index.html#shops">Shops</a></li>
-          <li><a href="products.html">Products</a></li>
+          <li><a href="products.html" class="active">Products</a></li>
+          <li><a href="index.html#projects">Projects</a></li>
           <li><a href="index.html#contact">Contact</a></li>
         </ul>
         <div class="hamburger">
@@ -45,124 +51,549 @@
       </div>
     </nav>
 
-    <section class="products" style="padding-top: 8rem">
+    <!-- Products Hero Section -->
+    <section class="products-hero">
+      <div class="container">
+        <div class="hero-content">
+          <h1>Our Complete Product Range</h1>
+          <p>
+            Discover our comprehensive collection of professional lighting
+            solutions for every application and environment
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Product Categories -->
+    <section class="product-categories-section">
       <div class="container">
         <div class="section-header">
-          <h2>Top Selling Products</h2>
-          <p>Our most popular lighting picks loved by customers</p>
+          <h2>Product Categories</h2>
+          <p>Explore our diverse range of lighting solutions</p>
         </div>
-
-        <div class="product-gallery">
-          <div class="product-card">
-            <img
-              class="lazy"
-              src="https://images.unsplash.com/photo-1519710164239-da123dc03ef4?w=10&q=1&auto=format&fit=crop"
-              data-src="https://images.unsplash.com/photo-1519710164239-da123dc03ef4?w=1000&q=80&auto=format&fit=crop"
-              alt="Modern pendant light"
-              loading="lazy"
-            />
-            <h4>Pendant Light</h4>
+        <div class="product-categories">
+          <div class="category-card">
+            <div class="category-icon">
+              <i class="fas fa-home"></i>
+            </div>
+            <h3>Interior Lighting</h3>
+            <p>
+              Chandeliers, pendants, recessed lights, and decorative fixtures
+              for residential and commercial interiors
+            </p>
+            <ul>
+              <li>Ceiling Lights</li>
+              <li>Wall Sconces</li>
+              <li>Track Lighting</li>
+              <li>Under Cabinet</li>
+              <li>Chandeliers</li>
+              <li>Pendant Lights</li>
+            </ul>
+            <div class="category-features">
+              <span class="feature-tag">Residential</span>
+              <span class="feature-tag">Commercial</span>
+              <span class="feature-tag">Decorative</span>
+            </div>
           </div>
-          <div class="product-card">
-            <img
-              class="lazy"
-              src="https://images.unsplash.com/photo-1493666438817-866a91353ca9?w=10&q=1&auto=format&fit=crop"
-              data-src="https://images.unsplash.com/photo-1493666438817-866a91353ca9?w=1000&q=80&auto=format&fit=crop"
-              alt="LED ceiling panel"
-              loading="lazy"
-            />
-            <h4>LED Ceiling Panel</h4>
+          <div class="category-card">
+            <div class="category-icon">
+              <i class="fas fa-building"></i>
+            </div>
+            <h3>Commercial Lighting</h3>
+            <p>
+              Professional lighting solutions for offices, retail, hospitality,
+              and industrial applications
+            </p>
+            <ul>
+              <li>LED Panels</li>
+              <li>High Bay Lights</li>
+              <li>Linear Lighting</li>
+              <li>Emergency Lighting</li>
+              <li>Office Lighting</li>
+              <li>Retail Lighting</li>
+            </ul>
+            <div class="category-features">
+              <span class="feature-tag">Professional</span>
+              <span class="feature-tag">Industrial</span>
+              <span class="feature-tag">Energy Efficient</span>
+            </div>
           </div>
-          <div class="product-card">
-            <img
-              class="lazy"
-              src="https://images.unsplash.com/photo-1486946255434-2466348c2166?w=10&q=1&auto=format&fit=crop"
-              data-src="https://images.unsplash.com/photo-1486946255434-2466348c2166?w=1000&q=80&auto=format&fit=crop"
-              alt="Adjustable desk lamp"
-              loading="lazy"
-            />
-            <h4>Adjustable Desk Lamp</h4>
+          <div class="category-card">
+            <div class="category-icon">
+              <i class="fas fa-tree"></i>
+            </div>
+            <h3>Exterior Lighting</h3>
+            <p>
+              Outdoor lighting solutions for landscapes, facades, and security
+              applications
+            </p>
+            <ul>
+              <li>Landscape Lights</li>
+              <li>Security Lights</li>
+              <li>Flood Lights</li>
+              <li>Path Lights</li>
+              <li>Wall Lights</li>
+              <li>Garden Lights</li>
+            </ul>
+            <div class="category-features">
+              <span class="feature-tag">Weatherproof</span>
+              <span class="feature-tag">Security</span>
+              <span class="feature-tag">Landscape</span>
+            </div>
           </div>
-          <div class="product-card">
-            <img
-              class="lazy"
-              src="https://images.unsplash.com/photo-1524758631624-e2822e304c36?w=10&q=1&auto=format&fit=crop"
-              data-src="https://images.unsplash.com/photo-1524758631624-e2822e304c36?w=1000&q=80&auto=format&fit=crop"
-              alt="Track lighting kit"
-              loading="lazy"
-            />
-            <h4>Track Lighting Kit</h4>
-          </div>
-          <div class="product-card">
-            <img
-              class="lazy"
-              src="https://images.unsplash.com/photo-1501045661006-fcebe0257c3f?w=10&q=1&auto=format&fit=crop"
-              data-src="https://images.unsplash.com/photo-1501045661006-fcebe0257c3f?w=1000&q=80&auto=format&fit=crop"
-              alt="Wall sconce"
-              loading="lazy"
-            />
-            <h4>Wall Sconce</h4>
-          </div>
-          <div class="product-card">
-            <img
-              class="lazy"
-              src="https://images.unsplash.com/photo-1604014237800-1c9102c79a9c?w=10&q=1&auto=format&fit=crop"
-              data-src="https://images.unsplash.com/photo-1604014237800-1c9102c79a9c?w=1000&q=80&auto=format&fit=crop"
-              alt="Outdoor fixture"
-              loading="lazy"
-            />
-            <h4>Outdoor Fixture</h4>
+          <div class="category-card">
+            <div class="category-icon">
+              <i class="fas fa-cog"></i>
+            </div>
+            <h3>Smart Lighting</h3>
+            <p>
+              Connected lighting systems with automation, control, and energy
+              management
+            </p>
+            <ul>
+              <li>Smart Switches</li>
+              <li>Motion Sensors</li>
+              <li>Dimmer Controls</li>
+              <li>App Control</li>
+              <li>Voice Control</li>
+              <li>Automation</li>
+            </ul>
+            <div class="category-features">
+              <span class="feature-tag">Smart</span>
+              <span class="feature-tag">Automated</span>
+              <span class="feature-tag">Connected</span>
+            </div>
           </div>
         </div>
       </div>
     </section>
 
+    <!-- Featured Products -->
+    <section class="featured-products">
+      <div class="container">
+        <div class="section-header">
+          <h2>Featured Products</h2>
+          <p>Our most popular and innovative lighting solutions</p>
+        </div>
+        <div class="product-gallery">
+          <div class="product-card">
+            <div class="product-image">
+              <img
+                class="lazy"
+                src="https://images.unsplash.com/photo-1519710164239-da123dc03ef4?w=10&q=1&auto=format&fit=crop"
+                data-src="https://images.unsplash.com/photo-1519710164239-da123dc03ef4?w=1000&q=80&auto=format&fit=crop"
+                alt="Modern pendant light"
+                loading="lazy"
+              />
+              <div class="product-overlay">
+                <button class="btn-outline">View Details</button>
+              </div>
+            </div>
+            <div class="product-info">
+              <h4>Modern Pendant Light</h4>
+              <p class="product-category">Interior Lighting</p>
+              <div class="product-features">
+                <span class="feature-tag">LED</span>
+                <span class="feature-tag">Dimmable</span>
+                <span class="feature-tag">Modern</span>
+              </div>
+            </div>
+          </div>
+          <div class="product-card">
+            <div class="product-image">
+              <img
+                class="lazy"
+                src="https://images.unsplash.com/photo-1493666438817-866a91353ca9?w=10&q=1&auto=format&fit=crop"
+                data-src="https://images.unsplash.com/photo-1493666438817-866a91353ca9?w=1000&q=80&auto=format&fit=crop"
+                alt="LED ceiling light"
+                loading="lazy"
+              />
+              <div class="product-overlay">
+                <button class="btn-outline">View Details</button>
+              </div>
+            </div>
+            <div class="product-info">
+              <h4>LED Ceiling Panel</h4>
+              <p class="product-category">Commercial Lighting</p>
+              <div class="product-features">
+                <span class="feature-tag">Energy Efficient</span>
+                <span class="feature-tag">Long Life</span>
+                <span class="feature-tag">Professional</span>
+              </div>
+            </div>
+          </div>
+          <div class="product-card">
+            <div class="product-image">
+              <img
+                class="lazy"
+                src="https://images.unsplash.com/photo-1486946255434-2466348c2166?w=10&q=1&auto=format&fit=crop"
+                data-src="https://images.unsplash.com/photo-1486946255434-2466348c2166?w=1000&q=80&auto=format&fit=crop"
+                alt="Desk lamp"
+                loading="lazy"
+              />
+              <div class="product-overlay">
+                <button class="btn-outline">View Details</button>
+              </div>
+            </div>
+            <div class="product-info">
+              <h4>Smart Desk Lamp</h4>
+              <p class="product-category">Smart Lighting</p>
+              <div class="product-features">
+                <span class="feature-tag">Smart</span>
+                <span class="feature-tag">Adjustable</span>
+                <span class="feature-tag">USB Charging</span>
+              </div>
+            </div>
+          </div>
+          <div class="product-card">
+            <div class="product-image">
+              <img
+                class="lazy"
+                src="https://images.unsplash.com/photo-1524758631624-e2822e304c36?w=10&q=1&auto=format&fit=crop"
+                data-src="https://images.unsplash.com/photo-1524758631624-e2822e304c36?w=1000&q=80&auto=format&fit=crop"
+                alt="Track lighting"
+                loading="lazy"
+              />
+              <div class="product-overlay">
+                <button class="btn-outline">View Details</button>
+              </div>
+            </div>
+            <div class="product-info">
+              <h4>Track Lighting System</h4>
+              <p class="product-category">Commercial Lighting</p>
+              <div class="product-features">
+                <span class="feature-tag">Flexible</span>
+                <span class="feature-tag">Adjustable</span>
+                <span class="feature-tag">Professional</span>
+              </div>
+            </div>
+          </div>
+          <div class="product-card">
+            <div class="product-image">
+              <img
+                class="lazy"
+                src="https://images.unsplash.com/photo-1501045661006-fcebe0257c3f?w=10&q=1&auto=format&fit=crop"
+                data-src="https://images.unsplash.com/photo-1501045661006-fcebe0257c3f?w=1000&q=80&auto=format&fit=crop"
+                alt="Wall sconce"
+                loading="lazy"
+              />
+              <div class="product-overlay">
+                <button class="btn-outline">View Details</button>
+              </div>
+            </div>
+            <div class="product-info">
+              <h4>Decorative Wall Sconce</h4>
+              <p class="product-category">Interior Lighting</p>
+              <div class="product-features">
+                <span class="feature-tag">Decorative</span>
+                <span class="feature-tag">Ambient</span>
+                <span class="feature-tag">Elegant</span>
+              </div>
+            </div>
+          </div>
+          <div class="product-card">
+            <div class="product-image">
+              <img
+                class="lazy"
+                src="https://images.unsplash.com/photo-1604014237800-1c9102c79a9c?w=10&q=1&auto=format&fit=crop"
+                data-src="https://images.unsplash.com/photo-1604014237800-1c9102c79a9c?w=1000&q=80&auto=format&fit=crop"
+                alt="Outdoor light fixture"
+                loading="lazy"
+              />
+              <div class="product-overlay">
+                <button class="btn-outline">View Details</button>
+              </div>
+            </div>
+            <div class="product-info">
+              <h4>Outdoor Security Light</h4>
+              <p class="product-category">Exterior Lighting</p>
+              <div class="product-features">
+                <span class="feature-tag">Weatherproof</span>
+                <span class="feature-tag">Motion Sensor</span>
+                <span class="feature-tag">Security</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Product Brands -->
+    <section class="product-brands">
+      <div class="container">
+        <div class="section-header">
+          <h2>Our Premium Brands</h2>
+          <p>Partnering with the world's leading lighting manufacturers</p>
+        </div>
+        <div class="brands-grid">
+          <div class="brand-card">
+            <div>
+              <img
+                src="images/philip.png"
+                loading="lazy"
+                sizes="20px"
+                width="100px"
+                height="100px"
+                style="object-fit: contain"
+              />
+            </div>
+            <h3>Philips Lighting</h3>
+            <p>Innovative LED solutions for every space</p>
+          </div>
+          <div class="brand-card">
+            <div>
+              <img
+                src="images/pan.png"
+                loading="lazy"
+                sizes="20px"
+                width="100px"
+                height="100px"
+                style="object-fit: contain"
+              />
+            </div>
+            <h3>Pan</h3>
+            <p>Professional lighting technology</p>
+          </div>
+          <div class="brand-card">
+            <div>
+              <img
+                src="images/hyundai.png"
+                loading="lazy"
+                sizes="20px"
+                width="100px"
+                height="100px"
+                style="object-fit: contain"
+              />
+            </div>
+            <h3>Hyundai Lighting</h3>
+            <p>High-performance LED lighting</p>
+          </div>
+          <div class="brand-card">
+            <div>
+              <img
+                src="images/vintage.jpg"
+                loading="lazy"
+                sizes="20px"
+                width="100px"
+                height="100px"
+                style="object-fit: contain"
+              />
+            </div>
+            <h3>Vantage</h3>
+            <p>Reliable commercial solutions</p>
+          </div>
+          <div class="brand-card">
+            <div>
+              <img
+                src="images/samsung.png"
+                loading="lazy"
+                sizes="20px"
+                width="100px"
+                height="100px"
+                style="object-fit: contain"
+              />
+            </div>
+            <h3>Samsung</h3>
+            <p>Architectural lighting excellence</p>
+          </div>
+          <div class="brand-card">
+            <div>
+              <img
+                src="images/msLight.jpg"
+                loading="lazy"
+                sizes="20px"
+                width="100px"
+                height="100px"
+                style="object-fit: contain"
+              />
+            </div>
+            <h3>Ms Lighting</h3>
+            <p>Architectural lighting excellence</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact CTA -->
+    <section class="contact-cta">
+      <div class="container">
+        <div class="cta-content">
+          <h2>Need Help Choosing the Right Products?</h2>
+          <p>
+            Our lighting experts are here to help you find the perfect lighting
+            solutions for your project
+          </p>
+          <div class="cta-buttons">
+            <a href="index.html#contact" class="btn-primary"
+              >Get Expert Advice</a
+            >
+            <a href="index.html#shops" class="btn-secondary"
+              >Visit Our Showrooms</a
+            >
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
     <footer class="footer">
       <div class="container">
         <div class="footer-content">
+          <!-- About Section -->
           <div class="footer-section">
             <div class="footer-logo">
-              <i class="fas fa-lightbulb"></i>
-              <span>Al -Burhan Regional Co.</span>
+              <span>Al-Burhan Regional Co.</span>
             </div>
             <p>
-              Professional lighting solutions for interior and commercial
-              spaces.
+              Your trusted partner in lighting excellence. We provide
+              comprehensive lighting solutions for residential, commercial, and
+              industrial applications across the Middle East and beyond.
             </p>
             <div class="social-links">
-              <a href="#"><i class="fab fa-facebook"></i></a>
-              <a href="#"><i class="fab fa-twitter"></i></a>
-              <a href="#"><i class="fab fa-linkedin"></i></a>
-              <a href="#"><i class="fab fa-instagram"></i></a>
+              <a href="#" aria-label="Facebook"
+                ><i class="fab fa-facebook-f"></i
+              ></a>
+              <a href="#" aria-label="Twitter"
+                ><i class="fab fa-twitter"></i
+              ></a>
+              <a href="#" aria-label="LinkedIn"
+                ><i class="fab fa-linkedin-in"></i
+              ></a>
+              <a href="#" aria-label="Instagram"
+                ><i class="fab fa-instagram"></i
+              ></a>
+              <a href="#" aria-label="YouTube"
+                ><i class="fab fa-youtube"></i
+              ></a>
             </div>
           </div>
+
+          <!-- Quick Links -->
           <div class="footer-section">
             <h4>Quick Links</h4>
             <ul>
-              <li><a href="index.html#about">About</a></li>
-              <li><a href="index.html#brands">Brands</a></li>
-              <li><a href="index.html#shops">Shops</a></li>
-              <li><a href="products.html">Products</a></li>
+              <li>
+                <a href="index.html"
+                  ><i class="fas fa-chevron-right"></i> Home</a
+                >
+              </li>
+              <li>
+                <a href="index.html#about"
+                  ><i class="fas fa-chevron-right"></i> About Us</a
+                >
+              </li>
+              <li>
+                <a href="index.html#divisions"
+                  ><i class="fas fa-chevron-right"></i> Our Divisions</a
+                >
+              </li>
+              <li>
+                <a href="index.html#companies"
+                  ><i class="fas fa-chevron-right"></i> Our Companies</a
+                >
+              </li>
+              <li>
+                <a href="index.html#brands"
+                  ><i class="fas fa-chevron-right"></i> Our Brands</a
+                >
+              </li>
+              <li>
+                <a href="index.html#shops"
+                  ><i class="fas fa-chevron-right"></i> Showrooms</a
+                >
+              </li>
             </ul>
           </div>
+
+          <!-- Services -->
           <div class="footer-section">
-            <h4>Services</h4>
+            <h4>Our Services</h4>
             <ul>
-              <li><a href="#">Interior Lighting</a></li>
-              <li><a href="#">Commercial Lighting</a></li>
-              <li><a href="#">Exterior Lighting</a></li>
-              <li><a href="#">Smart Lighting</a></li>
+              <li>
+                <a href="#"
+                  ><i class="fas fa-chevron-right"></i> Interior Lighting</a
+                >
+              </li>
+              <li>
+                <a href="#"
+                  ><i class="fas fa-chevron-right"></i> Commercial Lighting</a
+                >
+              </li>
+              <li>
+                <a href="#"
+                  ><i class="fas fa-chevron-right"></i> Exterior Lighting</a
+                >
+              </li>
+              <li>
+                <a href="#"
+                  ><i class="fas fa-chevron-right"></i> Smart Lighting</a
+                >
+              </li>
+              <li>
+                <a href="#"
+                  ><i class="fas fa-chevron-right"></i> Lighting Design</a
+                >
+              </li>
+              <li>
+                <a href="#"
+                  ><i class="fas fa-chevron-right"></i> Installation Services</a
+                >
+              </li>
             </ul>
           </div>
+
+          <!-- Contact & Newsletter -->
           <div class="footer-section">
             <h4>Contact Info</h4>
-            <p><i class="fas fa-phone"></i> +1 (555) 123-4567</p>
-            <p><i class="fas fa-envelope"></i> info@luminalight.com</p>
-            <p><i class="fas fa-map-marker-alt"></i> 123 Lighting Avenue</p>
+            <div class="contact-info">
+              <div class="contact-item">
+                <i class="fas fa-map-marker-alt"></i>
+                <div>
+                  <strong>Head Office</strong>
+                  Office 5, 4th Floor, Al Rifai Building<br />
+                  Tunis Street, Hawally, Kuwait
+                </div>
+              </div>
+              <div class="contact-item">
+                <i class="fas fa-phone"></i>
+                <div>
+                  <strong>Phone Numbers</strong>
+                  +965 99935529<br />
+                  +965 22280853
+                </div>
+              </div>
+              <div class="contact-item">
+                <i class="fas fa-envelope"></i>
+                <div>
+                  <strong>Email</strong>
+                  info@albhurhanregional.com
+                </div>
+              </div>
+              <div class="contact-item">
+                <i class="fas fa-clock"></i>
+                <div>
+                  <strong>Business Hours</strong>
+                  Sat-Thu: 9:00 AM - 7:00 PM<br />
+                  Friday: Closed
+                </div>
+              </div>
+            </div>
           </div>
         </div>
-        <div class="footer-bottom">
-          <p>&copy; 2024 Al -Burhan Regional Co.. All rights reserved.</p>
+      </div>
+
+      <!-- Footer Bottom -->
+      <div class="footer-bottom">
+        <div class="container">
+          <div class="footer-bottom-content">
+            <p>&copy; 2024 Al-Burhan Regional Co. All rights reserved.</p>
+            <div class="footer-links">
+              <a href="#">Privacy Policy</a>
+              <a href="#">Terms of Service</a>
+              <a href="#">Cookie Policy</a>
+              <a href="#">Sitemap</a>
+            </div>
+          </div>
         </div>
       </div>
     </footer>
